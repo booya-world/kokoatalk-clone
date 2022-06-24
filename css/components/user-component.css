@@ -1,0 +1,37 @@
+.user-component,
+.user-component__column:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*왜 user-component만 해도 그 아래의 클래스들이 포함될 것 같은데 그게 아닌가??*/
+/*first-child만 해당 설정을 준 이유는? first-child를 제외하니, 시간과 (1)이 가로로 배열됨. 이유는?*/
+.user-component__avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 27px;
+    margin-right: 20px;
+}
+.user-component__title
+{
+    font-weight: 600;
+    font-size: 22px;
+}
+.user-component__subtitle {
+    margin-top:5px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.user-computer__avatar--xl {
+    width: 80px;
+    height: 80px;
+}
+.user-component__time {
+    margin-bottom: 5px;
+    color: rgba(0, 0, 0, 0.4);
+}
+/*display: block;으로 해주어야 margin이 적용되겠지?*/
+.user-component__column:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

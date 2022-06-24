@@ -1,0 +1,57 @@
+
+.welcome-header {
+    margin: 90px 0px;
+    /*90px는 상하. 0px는 좌우*/
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+}
+.welcome-header__title {
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+.welcome-header__text {
+    width: 60%;
+    opacity: 0.8;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 30px;
+}
+#login-form input {
+    border: none;
+    padding: 15px 0px;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+/*transition은 설명 없는 변수에 넣어야 한다는 거*/
+
+#login-form input:not([type="submit"]) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+/*login-form submit에도 class지정해 사용해도 되지만 이렇게도 해봄*/
+#login-form input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+#login-form input:focus {
+    border-color: var(--yellow);
+}
+#login-form input[type="submit"] {
+    background-color: var(--yellow);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 20px 0px;
+    border-radius: 5px;
+}
+#login-form a {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    font-size: 13px;
+}
+/*color: inherit :: 아버지의 컬러를 받음. 아버지 login-form.
+디폴트 컬러는 항상 블랙이므로 블랙이 됨*/ㄴ

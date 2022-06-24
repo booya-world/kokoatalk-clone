@@ -1,0 +1,17 @@
+.screen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--horizental-space);
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.screen-header__title {
+    font-size: 28px;
+    font-weight: 600;
+}
+.screen-header__icons span:first-child {
+    margin-right: 25px;
+}
+/*왜 굳이 span이라고 추가해줘야하나?*/

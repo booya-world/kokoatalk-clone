@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Kokoa Talk</title>
+</head>
+<body>
+    <div class="status-bar">
+        <div class="status-bar__column">
+            <span>No Service</span>
+            <i class="fa-solid fa-wifi"></i>
+        </div>
+        <div class="status-bar__column">
+            <span>18:43</span>
+        </div>
+        <div class="status-bar__column">
+            <span>11%</span>
+            <i class="fa-solid fa-battery-full fa-lg"></i>
+            <!--fa-lg는 어떤 아이콘이든 크기를 바꿔주는 class 이름. 아이콘 사이트에서 여러 크기 px을 찾아 fa-2px처럼도 표현 가능-->
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+    </div>
+    <header class="welcome-header">
+        <h1 class="welcome-header__title">Welcome to Kokoa Clone</h1>
+        <p class="welcome-header__text">
+            If you have a Kokoa Account, log in with your email or phone number
+        </p>
+    </header>
+
+    <form action="friends.html" method="get" id="login-form">
+        <input name="username" type="text" placeholder="Email or phone number" />
+        <input name="password" type="password" placeholder="Password" />
+        <input type="submit" value="Log In" />
+    <!--form에는 2가지 attribute가 있음.
+    1. action. 내가 원하는 페이지로 데이터를 보냄
+    2. method. 
+        -post: 백앤드 서버에 정보 전송
+        -get: 우리가 사용할 것임. 허나 보안 취약. -->
+    
+    <a href="#">Find Kokoa Account or Password</a>
+</form>
+<!--form은 이 사이트에서 하나뿐일 것이므로 그냥 id로.
+id 와 class를 번갈아쓰다보면 어떤 것이 id였는지 class였는지 헷갈려서 웬만하면 class로 통일하기로 했었음-->
+    <script src="https://kit.fontawesome.com/2cb8b6ab98.js" crossorigin="anonymous"></script>
+    <!--script should always go last-->
+</body>
+</html>
