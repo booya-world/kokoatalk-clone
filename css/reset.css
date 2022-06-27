@@ -31,3 +31,6 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+.settings-list {
+	list-style: none;
+}

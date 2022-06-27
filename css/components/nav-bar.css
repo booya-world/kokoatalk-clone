@@ -19,6 +19,19 @@
     padding: 20px 0px;
     position: relative;
 }
+
+@keyframes notificationAnimation {
+    0%{
+        transform:none;
+    }
+    50%{
+        transform:translateY(-5px) rotateY(180deg);
+    }
+    100%{
+        transform:none;
+    }
+}
+
 .nav__notification {
     background-color: tomato;
     width: 20px;
@@ -32,12 +45,32 @@
     position: absolute;
     left: 15px;
     bottom: 35px;
+    animation: notificationAnimation 3s ease-in-out infinite;
 }
 /*display: block을 하지 않은 상태에서 단순히 width와 height값을 지정하면 변화가 없음.
 왜냐? span이니깐. span은 글자가 있는 부분에만 칠해주니까
 그러나 display: block을 하기에는 display: flex가 의미가 없어진다. 따라서 취소*/
 /*position: absolute - 메세지 아이콘 위에 숫자가 오게 함. 다만 유의할 점은 기준이 되는 것이 nav__link,
 즉 메세지 아이콘이므로 nav__link에 position:relative를 적어줘야 한다*/
+
+@keyframes appearBtnAnimation {
+    from {
+        opacity:0;
+    }
+    to {
+        transform: none;
+        opacity:1;
+    }
+}
+.nav__btn {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: appearBtnAnimation 0.3s ease-in-out forwards;  
+}
+/*translateY를 @keyframes가 아니라 nav-btn에 넣은 것은, nav-btn이 delay값을 가지고 
+있기 때문에 ...bar같은 경우, 시작할 때부터 애니가 아직 시작이 안되어 모양이 보이게 됨.
+그 경우를 방지하고자 nav-btn에 넣은 것
+*/
 
 .nav__red-point {
     background-color: tomato;
@@ -52,4 +85,13 @@
     position: absolute;
     left: 30px;
     bottom: 40px;
+}
+.nav__btn:nth-child(2){
+    animation-delay: 0.2s;
+}
+.nav__btn:nth-child(3){
+    animation-delay: 0.5s;
+}
+.nav__btn:last-child {
+    animation-delay: 0.8s;
 }

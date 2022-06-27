@@ -1,0 +1,188 @@
+#chat-screen {
+    background-color: #abc1d1;
+}
+@keyframes fadeIn {
+    from {
+        transform: translateY(30px);
+        opacity:0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+#chat-screen .alt-header,
+#chat-screen .status-bar {
+    top:0;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #abc1d1;
+}
+/*width:100%를 안하면 쪼그라들더라....*/
+
+#chat-screen .status-bar {
+    z-index:2;
+}
+/*z-index 숫자가 높을수록 layer이 위에 있음*/
+
+
+.main-chat{
+    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.3s linear;
+}
+/*main-chat를 display flex를 했더니 chat__timestamp가 span 마냥 작아졌다*/
+.chat__timestamp {
+    color: white;
+    background-color: #92a4b2;
+    padding: 15px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+.message-row {
+    width: 100%;
+    display: flex;
+    margin-bottom: 25px;
+}
+.message-row img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.message__author {
+    margin-bottom: 5px;
+    display: block;
+}
+.message__bubble {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    margin-right: 5px;
+}
+.message__info {
+    display: flex;
+    align-items: flex-end;
+}
+.message__time,
+.message__author {
+    opacity: 0.8;
+    font-size: 14px;
+}
+.message-row--own {
+    justify-content: flex-end;
+}
+/*message-row--own같은 걸 modifier이라 함*/
+.message-row--own .message__bubble {
+    background-color: var(--yellow);
+    border-top-right-radius: 0px;
+    border-top-left-radius: 10px;
+    margin-right: 0px;
+    margin-left: 5px;
+}
+.message-row--own .message__info {
+    flex-direction: row-reverse;
+}
+
+/*위의 내용은 짧은 버전. 아래 내용은 긴 버전
+.message-row--own .message__bubble {
+    order: 1;
+}
+.message-row--own .message__time {
+    order: 0;
+}
+/*css의 기능 중 order. flex children에만 적용*/
+
+.reply {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 25px;
+    align-items: center;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+.reply .reply__column:first-child {
+    width: 10%;
+}
+.reply .reply__column:last-child {
+    width: 90%;
+    position: relative;
+}
+/*icon들이 완전히 뜨게 하기 위해서 absolute 사용. 얘 기준 뜨는 것이기에 relative 써줘야 함.*/
+.reply i {
+    opacity: 0.5;
+}
+.reply input {
+    height: 30px;
+    width: 100%;
+    border: var(--main-border);
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+/*column에 width를 주지 않은 상태로 input에 width를 주는 건 변화가 없음.
+column이 flex상태이기 때문에 거기에 먼저 width를 줘야 함*/
+
+.reply__column:last-child i,
+.reply__column:last-child button {
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+.reply__column:last-child > i {
+    right: 40px;
+    top: 10px;
+}
+/*'>'를 안넣고 그냥 하니깐, 원치않는 버튼까지 absolute로 위로 뜨는 현상이 생김.
+내가 원하는 것은 input과 icon만 이므로 '>'을 씀으로서 reply__column에 직속으로 아래에 있는
+것만 지칭*/
+.reply__column button {
+    background-color: var(--yellow);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.reply__column button i {
+    font-size: 20px;
+    margin-right: 7px;
+    margin-top: 3px;
+    opacity: 1;
+}
+.reply__column button:focus,
+.reply__column button:active {
+    outline: none;
+}
+.reply .reply__column:first-child,
+.reply .fa-face-smile-beam,
+.reply button {
+    transition: transform 0.3s ease-in-out;
+}
+/*transition을 통해 input의 애니가 천천히 움직이게 함*/
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-face-smile-beam,
+.reply:focus-within button {
+    opacity: 0;
+}
+/*input box 안을 클릭하면 '+'기호가 없어지게*/
+/*focus-within이 true라면 reply__column을 수행*/
+.reply input:focus {
+    width: 98vw;
+    transform: translateX(-13%) translateY(-80px);
+}
+/*reply 라는 father을 써주지 않으면 모든 input에 적용되어버림*/
+/*translateX: 왼쪽으로 이동하게*/
+.reply:focus-within {
+    transform: translateY(80px);
+}

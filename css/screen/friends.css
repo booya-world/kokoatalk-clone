@@ -13,3 +13,40 @@
 .friends-screen {
     padding: 0px var(--horizental-space);
 }
+.friends-screen__channel {
+    margin-top: 25px;
+    border-top: var(--main-border);
+    padding-top: 15px;
+}
+.friends-screen__channel-header span {
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+#splash-screen {
+    background-color: var(--yellow);
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    animation: hideSplashScreen 0.4s ease-in-out forwards;
+    animation-delay: 2s;
+}
+/*forwards를 써주지 않으면 아래 애니메이션의 디폴트값은 결국 opacity 1이기 때문에
+애니메이션이 끝나면 다시 돌아옴. 하지만 'forwards'를 써주면 가장 마지막 keyframe에서
+지속되기 때문에 괜찮음.*/
+@keyframes hideSplashScreen {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+        visibility: hidden;
+    }
+}
+/*visibility: hidden을 추가해주지 않으면 element가 화면에 계속 남아있어
+nav 버튼을 클릭할 수가 없음.*/
